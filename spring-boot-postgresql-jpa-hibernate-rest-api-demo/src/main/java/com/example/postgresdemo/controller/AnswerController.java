@@ -30,6 +30,7 @@ public class AnswerController {
     public Answer addAnswer(@PathVariable Long questionId,
                             @Valid @RequestBody Answer answer) {
         return questionRepository.findById(questionId)
+
                 .map(question -> {
                     answer.setQuestion(question);
                     return answerRepository.save(answer);

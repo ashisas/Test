@@ -31,6 +31,7 @@ public class AnswerController {
                             @Valid @RequestBody Answer answer) {
         return questionRepository.findById(questionId)
 
+
                 .map(question -> {
                     answer.setQuestion(question);
                     return answerRepository.save(answer);

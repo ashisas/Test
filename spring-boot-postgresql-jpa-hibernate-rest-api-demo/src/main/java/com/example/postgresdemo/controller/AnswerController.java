@@ -3,6 +3,7 @@ package com.example.postgresdemo.controller;
 import com.example.postgresdemo.exception.ResourceNotFoundException;
 import com.example.postgresdemo.model.Answer;
 import com.example.postgresdemo.model.EncyptionEntity;
+import com.example.postgresdemo.model.Question;
 import com.example.postgresdemo.repository.AnswerRepository;
 import com.example.postgresdemo.repository.EncryptionRepo;
 import com.example.postgresdemo.repository.QuestionRepository;
@@ -29,7 +30,8 @@ public class AnswerController {
     @PostMapping("/questions/{questionId}/answers")
     public Answer addAnswer(@PathVariable Long questionId,
                             @Valid @RequestBody Answer answer) {
-        List<String> bug = null;
+        List<Question> q = questionRepository.findAll();
+        Question q1 = q.get(0);
         return questionRepository.findById(questionId)
 
 

@@ -29,6 +29,7 @@ public class AnswerController {
     @PostMapping("/questions/{questionId}/answers")
     public Answer addAnswer(@PathVariable Long questionId,
                             @Valid @RequestBody Answer answer) {
+        List<String> bug = null;
         return questionRepository.findById(questionId)
 
 
